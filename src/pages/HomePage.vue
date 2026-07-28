@@ -2,6 +2,7 @@
 import { ref } from 'vue'
 import { encode } from '../utils/encode.js'
 
+const question = ref('')
 const optionA = ref('')
 const optionB = ref('')
 const waNumber = ref('')
@@ -15,6 +16,7 @@ function generate() {
     a: optionA.value.trim(),
     b: optionB.value.trim(),
     w: waNumber.value.trim().replace(/[^0-9+]/g, ''),
+    q: question.value.trim(),
   })
 
   shareUrl.value = `${window.location.origin}/r/${slug}`
@@ -47,6 +49,21 @@ async function copyLink() {
     </div>
 
     <div class="w-full space-y-4">
+      <div>
+        <label class="mb-1.5 flex items-center gap-2 text-sm font-bold text-stone-700">
+          <span class="text-base">❓</span>
+          Question
+          <span class="ml-auto text-xs font-normal text-stone-400">{{ question.length }}/20</span>
+        </label>
+        <input
+          v-model="question"
+          maxlength="20"
+          placeholder="e.g. What's for dinner?"
+          class="w-full rounded-2xl border-2 border-stone-200 px-4 py-3 text-sm text-stone-800 outline-none transition-colors placeholder:text-stone-300 focus:border-stone-400"
+          @keydown.enter="generate"
+        />
+      </div>
+
       <div>
         <label class="mb-1.5 flex items-center gap-2 text-sm font-bold text-stone-700">
           <span class="flex h-6 w-6 items-center justify-center rounded-md bg-stone-300 text-xs font-bold text-white">A</span>

@@ -86,7 +86,7 @@ onMounted(() => {
     </template>
 
     <template v-else-if="data">
-      <h1 class="mb-2 text-center text-3xl font-black text-stone-900">What's your pick?</h1>
+      <h1 class="mb-2 text-center text-3xl font-black text-stone-900">{{ data.q || "What's your pick?" }}</h1>
       <p v-if="!chosen" class="mb-10 text-stone-400">Tap a card to reveal the options</p>
       <p v-else-if="chosen && !answered" class="mb-10 text-stone-400">
         Send your pick via WhatsApp to see what you missed
