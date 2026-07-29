@@ -32,10 +32,8 @@ useHead({
   title: () => data.value?.q || "What's your pick?",
   meta: [
     { property: 'og:title', content: () => data.value?.q || "What's your pick?" },
-    { property: 'og:description', content: () =>
-      data.value ? `A: ${data.value.a}  ·  B: ${data.value.b}` : '' },
-    { name: 'description', content: () =>
-      data.value ? `A: ${data.value.a}  ·  B: ${data.value.b}` : '' },
+    { property: 'og:description', content: "See what options you have and make a pick" },
+    { name: 'description', content: "See what options you have and make a pick" },
   ],
 })
 

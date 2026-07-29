@@ -120,11 +120,11 @@ var _sfc_main = {
 				},
 				{
 					property: "og:description",
-					content: () => data.value ? `A: ${data.value.a}  ·  B: ${data.value.b}` : ""
+					content: "See what options you have and make a pick"
 				},
 				{
 					name: "description",
-					content: () => data.value ? `A: ${data.value.a}  ·  B: ${data.value.b}` : ""
+					content: "See what options you have and make a pick"
 				}
 			]
 		});
@@ -253,4 +253,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=_slug_-C2YlP7Dh.mjs.map
+//# sourceMappingURL=_slug_-X5Yd8fO_.mjs.map
