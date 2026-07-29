@@ -1464,11 +1464,11 @@ var namedMiddleware = {};
 var virtual_nuxt_node_modules_2F_cache_2Fnuxt_2F_nuxt_2Froutes_default = [{
 	name: "r-slug",
 	path: "/r/:slug()",
-	component: () => import('../build/_slug_-X5Yd8fO_.mjs')
+	component: () => import('../build/_slug_-DiVmmVc_.mjs')
 }, {
 	name: "index",
 	path: "/",
-	component: () => import('../build/pages-CucHHT3a.mjs')
+	component: () => import('../build/pages-DLgzIQto.mjs')
 }];
 //#endregion
 //#region node_modules/.pnpm/nuxt@4.5.1_@babel+plugin-syntax-jsx@7.29.7_@babel+core@7.29.7__@babel+plugin-syntax-typ_28d80f330f05c250f72b376d5d55283d/node_modules/nuxt/dist/pages/runtime/plugins/router.js
@@ -2068,11 +2068,12 @@ var _sfc_main$2 = {
 	__name: "app",
 	__ssrInlineRender: true,
 	setup(__props) {
+		const showHowTo = ref(false);
 		useHead$1({ titleTemplate: (chunk) => chunk ? `${chunk} · Pickt` : "Pickt — Make the call." });
 		return (_ctx, _push, _parent, _attrs) => {
 			const _component_NuxtLink = NuxtLink;
 			const _component_NuxtPage = page_default;
-			_push(`<div${ssrRenderAttrs(mergeProps({ class: "min-h-screen bg-stone-50" }, _attrs))}><header class="mx-auto flex max-w-5xl items-center px-6 py-4">`);
+			_push(`<div${ssrRenderAttrs(mergeProps({ class: "min-h-screen bg-stone-50" }, _attrs))}><header class="mx-auto flex max-w-5xl items-center justify-between px-6 py-4">`);
 			_push(ssrRenderComponent(_component_NuxtLink, {
 				to: "/",
 				class: "flex items-center gap-2 no-underline"
@@ -2134,8 +2135,10 @@ var _sfc_main$2 = {
 				}),
 				_: 1
 			}, _parent));
-			_push(`</header>`);
+			_push(`<button class="flex h-8 w-8 items-center justify-center rounded-full border border-stone-200 text-sm font-bold text-stone-400 transition-colors hover:border-stone-300 hover:text-stone-600" aria-label="How to use Pickt"> ? </button></header>`);
 			_push(ssrRenderComponent(_component_NuxtPage, null, null, _parent));
+			if (unref(showHowTo)) _push(`<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"><div class="w-full max-w-lg rounded-3xl bg-white p-8 shadow-2xl"><div class="mb-6 flex items-center justify-between"><h2 class="text-xl font-black text-stone-900">How Pickt works</h2><button class="flex h-7 w-7 items-center justify-center rounded-full text-stone-400 transition-colors hover:bg-stone-100 hover:text-stone-600"> ✕ </button></div><div class="space-y-5"><div class="flex gap-4"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-amber-100 text-xs font-bold text-amber-600">1</span><div><p class="font-semibold text-stone-800">Write your question</p><p class="text-sm text-stone-400">Enter a question and two options — like the two folded papers in the real game.</p></div></div><div class="flex gap-4"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-violet-100 text-xs font-bold text-violet-600">2</span><div><p class="font-semibold text-stone-800">Add your WhatsApp</p><p class="text-sm text-stone-400">Your number is encoded in the link — the picker will send their choice directly to you.</p></div></div><div class="flex gap-4"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-stone-200 text-xs font-bold text-stone-600">3</span><div><p class="font-semibold text-stone-800">Share the link</p><p class="text-sm text-stone-400">Send it to anyone. They see two identical cards and pick one blindly — just like real life.</p></div></div><div class="flex gap-4"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-600">4</span><div><p class="font-semibold text-stone-800">Get their pick</p><p class="text-sm text-stone-400">A WhatsApp message arrives with their choice. The other option stays hidden until they commit.</p></div></div></div><button class="mt-8 w-full rounded-2xl bg-stone-800 py-3 text-sm font-bold text-white transition-colors hover:bg-stone-900"> Got it </button></div></div>`);
+			else _push(`<!---->`);
 			_push(`</div>`);
 		};
 	}

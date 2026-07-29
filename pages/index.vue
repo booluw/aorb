@@ -50,11 +50,11 @@ async function copyLink() {
         <label class="mb-1.5 flex items-center gap-2 text-sm font-bold text-stone-700">
           <span class="text-base">❓</span>
           Question
-          <span class="ml-auto text-xs font-normal text-stone-400">{{ question.length }}/20</span>
+          <span class="ml-auto text-xs font-normal text-stone-400">{{ question.length }}/25</span>
         </label>
         <input
           v-model="question"
-          maxlength="20"
+          maxlength="25"
           placeholder="e.g. What's for dinner?"
           class="w-full rounded-2xl border-2 border-stone-200 px-4 py-3 text-sm text-stone-800 outline-none transition-colors placeholder:text-stone-300 focus:border-stone-400"
           @keydown.enter="generate"

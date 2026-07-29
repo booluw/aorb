@@ -10,6 +10,7 @@ const chosen = ref(null)
 const answered = ref(false)
 const slug = route.params.slug
 const capturing = ref(false)
+const siteUrl = ref('')
 
 const captureCardEl = ref(null)
 
@@ -114,6 +115,7 @@ async function onSendWp(side) {
 }
 
 onMounted(() => {
+  siteUrl.value = window.location.origin
   const saved = localStorage.getItem(storageKey)
   if (saved) {
     chosen.value = saved
@@ -178,6 +180,13 @@ onMounted(() => {
       <p v-if="chosen && !answered" class="mt-10 text-center text-xs text-stone-300">
         Don't worry — the other option stays hidden until you send.
       </p>
+
+      <NuxtLink
+        to="/"
+        class="mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-stone-400 transition-colors hover:text-stone-700"
+      >
+        <span class="text-base">+</span> Create your own pick
+      </NuxtLink>
     </template>
 
     <div v-else class="mt-20">
@@ -229,7 +238,7 @@ onMounted(() => {
         </div>
 
         <!-- footer -->
-        <div class="flex items-center justify-center gap-2 border-t border-stone-100 px-10 py-6">
+        <div class="flex flex-col items-center gap-2 border-t border-stone-100 px-10 py-5">
           <svg width="48" height="16" viewBox="0 0 200 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0 opacity-30">
             <rect x="0" y="4" width="44" height="56" rx="11" fill="#F59E0B" />
             <rect x="24" y="4" width="44" height="56" rx="11" fill="#7C3AED" />
@@ -237,7 +246,7 @@ onMounted(() => {
             <text x="44.5" y="44" font-family="system-ui, sans-serif" font-size="30" font-weight="900" fill="white" text-anchor="middle">B</text>
             <text x="82" y="44" font-family="system-ui, sans-serif" font-size="34" font-weight="800" fill="#1C1917" letter-spacing="-1">pickt</text>
           </svg>
-          <span class="text-xs font-medium text-stone-300">pickt</span>
+          <span class="text-xs font-medium text-stone-300">{{ siteUrl }}</span>
         </div>
       </div>
     </div>

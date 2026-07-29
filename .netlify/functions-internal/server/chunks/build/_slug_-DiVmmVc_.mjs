@@ -1,6 +1,6 @@
 import { u as useRoute$1, a as useHead$1, N as NuxtLink } from '../virtual/entry.mjs';
 import { _ as _plugin_vue_export_helper_default } from './_plugin-vue_export-helper-BOaGB7Aw.mjs';
-import { ref, mergeProps, unref, withCtx, createTextVNode, nextTick, useSSRContext } from 'vue';
+import { ref, mergeProps, unref, withCtx, createTextVNode, createVNode, nextTick, useSSRContext } from 'vue';
 import { ssrRenderAttrs, ssrRenderComponent, ssrInterpolate, ssrRenderStyle, ssrRenderClass } from 'vue/server-renderer';
 import confetti from 'canvas-confetti';
 import html2canvas from 'html2canvas';
@@ -102,6 +102,7 @@ var _sfc_main = {
 		const answered = ref(false);
 		const slug = route.params.slug;
 		const capturing = ref(false);
+		const siteUrl = ref("");
 		const captureCardEl = ref(null);
 		if (slug) try {
 			const decoded = decode(slug);
@@ -234,9 +235,19 @@ var _sfc_main = {
 				_push(`</div>`);
 				if (unref(chosen) && !unref(answered)) _push(`<p class="mt-10 text-center text-xs text-stone-300"> Don&#39;t worry — the other option stays hidden until you send. </p>`);
 				else _push(`<!---->`);
+				_push(ssrRenderComponent(_component_NuxtLink, {
+					to: "/",
+					class: "mt-8 inline-flex items-center gap-1.5 text-sm font-medium text-stone-400 transition-colors hover:text-stone-700"
+				}, {
+					default: withCtx((_, _push, _parent, _scopeId) => {
+						if (_push) _push(`<span class="text-base"${_scopeId}>+</span> Create your own pick `);
+						else return [createVNode("span", { class: "text-base" }, "+"), createTextVNode(" Create your own pick ")];
+					}),
+					_: 1
+				}, _parent));
 				_push(`<!--]-->`);
 			} else _push(`<div class="mt-20"><div class="h-10 w-10 animate-spin rounded-full border-4 border-stone-200 border-t-stone-800"></div></div>`);
-			_push(`<div class="fixed left-[-9999px] top-0 w-[400px] overflow-hidden rounded-3xl border border-stone-100 bg-white" style="${ssrRenderStyle({ "height": "520px" })}"><div class="flex h-full flex-col"><div class="${ssrRenderClass([unref(chosen) === "A" ? "bg-amber-400" : "bg-violet-500", "h-1.5 w-full shrink-0"])}"></div><div class="flex flex-col items-center justify-center px-10 pt-10 pb-6 text-center"><div class="mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-stone-50 text-3xl leading-none"> ❓ </div><p class="text-2xl font-black text-stone-900 leading-[1.2]">${ssrInterpolate(unref(data)?.q || "What's your pick?")}</p></div><div class="mx-10 border-t border-stone-100"></div><div class="flex flex-1 flex-col items-center justify-center px-10 text-center"><span class="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-stone-400">I PICKED</span><div class="${ssrRenderClass([unref(chosen) === "A" ? "bg-amber-50" : "bg-violet-50", "inline-flex items-center gap-4 rounded-2xl px-6 py-4"])}"><span class="${ssrRenderClass([unref(chosen) === "A" ? "bg-amber-400" : "bg-violet-500", "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-2xl font-black text-white leading-none"])}">${ssrInterpolate(unref(chosen))}</span><span class="text-xl font-bold text-stone-800 leading-snug">${ssrInterpolate(unref(chosen) === "A" ? unref(data)?.a : unref(data)?.b)}</span></div></div><div class="flex items-center justify-center gap-2 border-t border-stone-100 px-10 py-6"><svg width="48" height="16" viewBox="0 0 200 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0 opacity-30"><rect x="0" y="4" width="44" height="56" rx="11" fill="#F59E0B"></rect><rect x="24" y="4" width="44" height="56" rx="11" fill="#7C3AED"></rect><text x="20.5" y="44" font-family="system-ui, sans-serif" font-size="30" font-weight="900" fill="white" text-anchor="middle">A</text><text x="44.5" y="44" font-family="system-ui, sans-serif" font-size="30" font-weight="900" fill="white" text-anchor="middle">B</text><text x="82" y="44" font-family="system-ui, sans-serif" font-size="34" font-weight="800" fill="#1C1917" letter-spacing="-1">pickt</text></svg><span class="text-xs font-medium text-stone-300">pickt</span></div></div></div>`);
+			_push(`<div class="fixed left-[-9999px] top-0 w-[400px] overflow-hidden rounded-3xl border border-stone-100 bg-white" style="${ssrRenderStyle({ "height": "520px" })}"><div class="flex h-full flex-col"><div class="${ssrRenderClass([unref(chosen) === "A" ? "bg-amber-400" : "bg-violet-500", "h-1.5 w-full shrink-0"])}"></div><div class="flex flex-col items-center justify-center px-10 pt-10 pb-6 text-center"><div class="mb-3 flex h-14 w-14 items-center justify-center rounded-2xl bg-stone-50 text-3xl leading-none"> ❓ </div><p class="text-2xl font-black text-stone-900 leading-[1.2]">${ssrInterpolate(unref(data)?.q || "What's your pick?")}</p></div><div class="mx-10 border-t border-stone-100"></div><div class="flex flex-1 flex-col items-center justify-center px-10 text-center"><span class="mb-4 text-xs font-bold uppercase tracking-[0.25em] text-stone-400">I PICKED</span><div class="${ssrRenderClass([unref(chosen) === "A" ? "bg-amber-50" : "bg-violet-50", "inline-flex items-center gap-4 rounded-2xl px-6 py-4"])}"><span class="${ssrRenderClass([unref(chosen) === "A" ? "bg-amber-400" : "bg-violet-500", "flex h-12 w-12 shrink-0 items-center justify-center rounded-xl text-2xl font-black text-white leading-none"])}">${ssrInterpolate(unref(chosen))}</span><span class="text-xl font-bold text-stone-800 leading-snug">${ssrInterpolate(unref(chosen) === "A" ? unref(data)?.a : unref(data)?.b)}</span></div></div><div class="flex flex-col items-center gap-2 border-t border-stone-100 px-10 py-5"><svg width="48" height="16" viewBox="0 0 200 64" fill="none" xmlns="http://www.w3.org/2000/svg" class="shrink-0 opacity-30"><rect x="0" y="4" width="44" height="56" rx="11" fill="#F59E0B"></rect><rect x="24" y="4" width="44" height="56" rx="11" fill="#7C3AED"></rect><text x="20.5" y="44" font-family="system-ui, sans-serif" font-size="30" font-weight="900" fill="white" text-anchor="middle">A</text><text x="44.5" y="44" font-family="system-ui, sans-serif" font-size="30" font-weight="900" fill="white" text-anchor="middle">B</text><text x="82" y="44" font-family="system-ui, sans-serif" font-size="34" font-weight="800" fill="#1C1917" letter-spacing="-1">pickt</text></svg><span class="text-xs font-medium text-stone-300">${ssrInterpolate(unref(siteUrl))}</span></div></div></div>`);
 			if (unref(capturing)) _push(`<div class="fixed inset-0 z-50 flex items-center justify-center bg-white/80"><div class="text-center"><div class="mx-auto mb-4 h-10 w-10 animate-spin rounded-full border-4 border-stone-200 border-t-stone-800"></div><p class="text-sm font-medium text-stone-500">Generating your card...</p></div></div>`);
 			else _push(`<!---->`);
 			if (unref(showCheatModal)) _push(`<div class="fixed inset-0 z-50 flex items-center justify-center bg-black/50 px-4"><div class="w-full max-w-md rounded-3xl bg-white p-8 text-center shadow-2xl"><div class="mb-3 text-5xl">👀</div><h2 class="mb-2 text-2xl font-black text-stone-900">Nice try, cheater.</h2><p class="mb-1 text-stone-500"> You already peeked at <strong class="text-stone-700">Option ${ssrInterpolate(unref(chosen))}</strong>. </p><p class="mb-6 text-stone-500"> No reloading your way out of this one. Send it or admit defeat. </p><button class="rounded-2xl bg-stone-800 px-6 py-3 text-sm font-bold text-white transition-all hover:bg-stone-900"> I&#39;ll send it, relax </button></div></div>`);
@@ -253,4 +264,4 @@ _sfc_main.setup = (props, ctx) => {
 };
 
 export { _sfc_main as default };
-//# sourceMappingURL=_slug_-X5Yd8fO_.mjs.map
+//# sourceMappingURL=_slug_-DiVmmVc_.mjs.map
