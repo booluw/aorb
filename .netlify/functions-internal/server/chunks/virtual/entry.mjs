@@ -1464,7 +1464,7 @@ var namedMiddleware = {};
 var virtual_nuxt_node_modules_2F_cache_2Fnuxt_2F_nuxt_2Froutes_default = [{
 	name: "r-slug",
 	path: "/r/:slug()",
-	component: () => import('../build/_slug_-C2YlP7Dh.mjs')
+	component: () => import('../build/_slug_-X5Yd8fO_.mjs')
 }, {
 	name: "index",
 	path: "/",
